@@ -1,4 +1,6 @@
 ﻿@using BadNews.Elevation
+@using BadNews.BlazorComponents
+@using BadNews.Components
 @model BadNews.Models.News.FullArticleModel
 
 
@@ -21,15 +23,7 @@
             </div>
         </div>
         <div id="comments" />
-        <label>
-            Пользователь <input id="userInput">
-        </label>
-        <label>
-            Комментарий <input id="commentInput">
-        </label>
-        <div>
-            <button id="sendButton">Отправить</button>
-        </div>
+        @(await Html.RenderComponentAsync<Comments>(RenderMode.ServerPrerendered))
         <aside class="col-md-4 news-sidebar">
             <vc:weather></vc:weather>
             <vc:archive-links></vc:archive-links>
